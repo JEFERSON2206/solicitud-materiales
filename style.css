@@ -756,3 +756,51 @@ button {
     grid-column: auto;
     }
 }
+
+/* ==========================================
+   BLOQUEAR MOVIMIENTO DEL FONDO DEL MODAL
+========================================== */
+
+body {
+    overscroll-behavior-y: contain;
+}
+
+
+/* Cuando la ventana está abierta,
+   el fondo queda bloqueado */
+body:has(.modal.mostrar) {
+    overflow: hidden;
+    touch-action: none;
+}
+
+
+/* ==========================================
+   LA VENTANA SÍ PUEDE DESPLAZARSE
+========================================== */
+
+.modal {
+    overscroll-behavior: contain;
+    touch-action: none;
+}
+
+
+.modal-contenido {
+    touch-action: pan-y;
+}
+
+
+/* Solo la lista de materiales se desplaza */
+.lista-canasta {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* ==========================================
+   EVITAR EL "REBOTE" DE LA PÁGINA EN CELULAR
+========================================== */
+
+html {
+    overscroll-behavior: none;
+}
