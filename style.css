@@ -780,7 +780,8 @@ body:has(.modal.mostrar) {
 
 .modal {
     overscroll-behavior: contain;
-    touch-action: none;
+    touch-action: pan-y;
+    overflow-y: auto;
 }
 
 
