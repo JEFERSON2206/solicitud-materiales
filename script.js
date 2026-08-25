@@ -1,7 +1,10 @@
 let materiales = [];
 let canasta = [];
 
+// ==========================================
 // ELEMENTOS DEL HTML
+// ==========================================
+
 const lista = document.getElementById("lista");
 const buscador = document.getElementById("buscador");
 const contador = document.getElementById("contador");
@@ -124,10 +127,12 @@ function agregarCanasta(codigo) {
 
     if (existente) {
 
+        // Si ya existe, aumenta solamente la cantidad
         existente.cantidad++;
 
     } else {
 
+        // Si no existe, crea un nuevo material
         canasta.push({
 
             codigo: material.codigo,
@@ -152,20 +157,27 @@ function agregarCanasta(codigo) {
 
 function mostrarCanasta() {
 
-    // Calcular cantidad total
-    const totalUnidades = canasta.reduce(
-    (suma, item) => suma + item.cantidad,
-    0
-    );
+    // ======================================
+    // IMPORTANTE:
+    // canasta.length = materiales DIFERENTES
+    // ======================================
 
     const totalMateriales = canasta.length;
 
+
+    // Número que aparece en 🛒 Mi solicitud
     contadorCanasta.textContent = totalMateriales;
 
-    totalCanasta.textContent =
-      totalMateriales +
-     (totalMateriales === 1 ? " material" : " materiales");
 
+    // Texto inferior del carrito
+    totalCanasta.textContent =
+        totalMateriales +
+        (totalMateriales === 1 ? " material" : " materiales");
+
+
+    // ======================================
+    // CANASTA VACÍA
+    // ======================================
 
     if (canasta.length === 0) {
 
@@ -178,6 +190,10 @@ function mostrarCanasta() {
         return;
     }
 
+
+    // ======================================
+    // MOSTRAR MATERIALES
+    // ======================================
 
     contenedorCanasta.innerHTML = canasta.map(item => {
 
@@ -197,26 +213,39 @@ function mostrarCanasta() {
                 </div>
 
 
+                <!-- CONTROL DE CANTIDAD -->
+
                 <div class="control-cantidad">
 
                     <button
                         class="btn-cantidad"
-                        onclick="cambiarCantidad('${escaparAtributo(item.codigo)}', -1)"
+                        onclick="cambiarCantidad(
+                            '${escaparAtributo(item.codigo)}',
+                            -1
+                        )"
                     >
                         −
                     </button>
+
 
                     <input
                         class="input-cantidad"
                         type="number"
                         min="1"
                         value="${item.cantidad}"
-                        onchange="ponerCantidad('${escaparAtributo(item.codigo)}', this.value)"
+                        onchange="ponerCantidad(
+                            '${escaparAtributo(item.codigo)}',
+                            this.value
+                        )"
                     >
+
 
                     <button
                         class="btn-cantidad"
-                        onclick="cambiarCantidad('${escaparAtributo(item.codigo)}', 1)"
+                        onclick="cambiarCantidad(
+                            '${escaparAtributo(item.codigo)}',
+                            1
+                        )"
                     >
                         +
                     </button>
@@ -224,9 +253,13 @@ function mostrarCanasta() {
                 </div>
 
 
+                <!-- ELIMINAR -->
+
                 <button
                     class="btn-eliminar"
-                    onclick="eliminarCanasta('${escaparAtributo(item.codigo)}')"
+                    onclick="eliminarCanasta(
+                        '${escaparAtributo(item.codigo)}'
+                    )"
                 >
                     🗑
                 </button>
@@ -254,6 +287,8 @@ function cambiarCantidad(codigo, cambio) {
 
     item.cantidad += cambio;
 
+
+    // Si llega a cero, elimina el material
     if (item.cantidad <= 0) {
 
         canasta = canasta.filter(
@@ -281,7 +316,12 @@ function ponerCantidad(codigo, cantidad) {
 
     let nuevaCantidad = parseInt(cantidad);
 
-    if (isNaN(nuevaCantidad) || nuevaCantidad < 1) {
+
+    if (
+        isNaN(nuevaCantidad) ||
+        nuevaCantidad < 1
+    ) {
+
         nuevaCantidad = 1;
     }
 
@@ -314,6 +354,7 @@ buscador.addEventListener("input", () => {
     const texto =
         buscador.value.toLowerCase().trim();
 
+
     const filtrados = materiales.filter(material => {
 
         const codigo =
@@ -322,11 +363,13 @@ buscador.addEventListener("input", () => {
         const descripcion =
             String(material.descripcion).toLowerCase();
 
+
         return (
             codigo.includes(texto) ||
             descripcion.includes(texto)
         );
     });
+
 
     mostrar(filtrados);
 });
@@ -352,7 +395,9 @@ function cerrarModal() {
 }
 
 
+// ==========================================
 // BOTÓN SUPERIOR
+// ==========================================
 
 btnCanasta.addEventListener("click", () => {
 
@@ -361,7 +406,9 @@ btnCanasta.addEventListener("click", () => {
 });
 
 
+// ==========================================
 // BOTÓN X
+// ==========================================
 
 cerrarCanasta.addEventListener("click", () => {
 
@@ -370,7 +417,9 @@ cerrarCanasta.addEventListener("click", () => {
 });
 
 
+// ==========================================
 // BOTÓN SEGUIR AGREGANDO
+// ==========================================
 
 btnCerrarAbajo.addEventListener("click", () => {
 
@@ -379,7 +428,9 @@ btnCerrarAbajo.addEventListener("click", () => {
 });
 
 
-// CERRAR SI SE HACE CLICK FUERA DE LA VENTANA
+// ==========================================
+// CERRAR AL HACER CLICK FUERA
+// ==========================================
 
 modalCanasta.addEventListener("click", (evento) => {
 
@@ -398,30 +449,51 @@ modalCanasta.addEventListener("click", (evento) => {
 
 btnWhatsApp.addEventListener("click", () => {
 
-    // Verificar materiales
+    // ======================================
+    // VERIFICAR MATERIALES
+    // ======================================
+
     if (canasta.length === 0) {
 
-        alert("Primero agrega materiales a la solicitud.");
+        alert(
+            "Primero agrega materiales a la solicitud."
+        );
 
         return;
     }
 
 
-    // Obtener datos
+    // ======================================
+    // OBTENER DATOS
+    // ======================================
+
     const solicitante =
-        document.getElementById("solicitante").value.trim();
+        document.getElementById("solicitante")
+        .value
+        .trim();
+
 
     const planta =
-        document.getElementById("planta").value.trim();
+        document.getElementById("planta")
+        .value
+        .trim();
+
 
     const zona =
-        document.getElementById("zona").value.trim();
+        document.getElementById("zona")
+        .value
+        .trim();
 
 
-    // Verificar solicitante
+    // ======================================
+    // VALIDAR SOLICITANTE
+    // ======================================
+
     if (!solicitante) {
 
-        alert("Por favor escribe el nombre del técnico o ingeniero.");
+        alert(
+            "Por favor escribe el nombre del técnico o ingeniero."
+        );
 
         document.getElementById("solicitante").focus();
 
@@ -429,10 +501,15 @@ btnWhatsApp.addEventListener("click", () => {
     }
 
 
-    // Verificar planta
+    // ======================================
+    // VALIDAR PLANTA
+    // ======================================
+
     if (!planta) {
 
-        alert("Por favor escribe la planta.");
+        alert(
+            "Por favor escribe la planta."
+        );
 
         document.getElementById("planta").focus();
 
@@ -440,10 +517,15 @@ btnWhatsApp.addEventListener("click", () => {
     }
 
 
-    // Verificar zona
+    // ======================================
+    // VALIDAR ZONA
+    // ======================================
+
     if (!zona) {
 
-        alert("Por favor escribe la zona o área.");
+        alert(
+            "Por favor escribe la zona o área."
+        );
 
         document.getElementById("zona").focus();
 
@@ -451,72 +533,94 @@ btnWhatsApp.addEventListener("click", () => {
     }
 
 
-    // ==========================================
+    // ======================================
     // CREAR MENSAJE
-    // ==========================================
+    // ======================================
 
     let mensaje = "";
 
-    mensaje += "*SOLICITUD DE MATERIALES*\n\n";
 
-    mensaje += "*Solicitante:* " + solicitante + "\n";
-
-    mensaje += "*Planta:* " + planta + "\n";
-
-    mensaje += "*Zona / Área:* " + zona + "\n\n";
-
-    mensaje += "*MATERIALES SOLICITADOS*\n\n";
+    mensaje +=
+        "📋 *SOLICITUD DE MATERIALES*\n\n";
 
 
-    // ==========================================
-    // AGREGAR MATERIALES
-    // ==========================================
+    mensaje +=
+        "👤 *Solicitante:* " +
+        solicitante +
+        "\n";
+
+
+    mensaje +=
+        "🏭 *Planta:* " +
+        planta +
+        "\n";
+
+
+    mensaje +=
+        "📍 *Zona / Área:* " +
+        zona +
+        "\n\n";
+
+
+    mensaje +=
+        "🔧 *MATERIALES SOLICITADOS*\n\n";
+
+
+    // ======================================
+    // AGREGAR CADA MATERIAL
+    // ======================================
 
     canasta.forEach((item, indice) => {
 
         mensaje +=
-            (indice + 1) + ". " +
-            item.descripcion + "\n";
+            (indice + 1) +
+            ". " +
+            item.descripcion +
+            "\n";
+
 
         mensaje +=
             "   Código: " +
-            item.codigo + "\n";
+            item.codigo +
+            "\n";
+
 
         mensaje +=
             "   Cantidad: " +
-            item.cantidad + "\n\n";
+            item.cantidad +
+            "\n\n";
 
     });
 
 
-    // ==========================================
-    // TOTAL
-    // ==========================================
+    // ======================================
+    // TOTAL DE MATERIALES DIFERENTES
+    // ======================================
 
-    const total = canasta.reduce(
-        (suma, item) => suma + item.cantidad,
-        0
-    );
+    const totalMateriales = canasta.length;
 
 
     mensaje +=
-        "*Total de unidades:* " +
-        total + "\n\n";
+        "📦 *Total de materiales:* " +
+        totalMateriales +
+        "\n\n";
+
 
     mensaje +=
         "Solicitud generada desde el sistema de materiales.";
 
 
-    // ==========================================
+    // ======================================
     // NÚMERO DE WHATSAPP
-    // ==========================================
+    // ======================================
 
-    const numero = "573209816813";
+    const numero =
+        "573209816813";
 
 
-    // ==========================================
+    // ======================================
     // CREAR ENLACE
-    // ==========================================
+    // ======================================
 
     const url =
         "https://wa.me/" +
@@ -525,10 +629,15 @@ btnWhatsApp.addEventListener("click", () => {
         encodeURIComponent(mensaje);
 
 
-    // Abrir WhatsApp
+    // ======================================
+    // ABRIR WHATSAPP
+    // ======================================
+
     window.open(url, "_blank");
 
 });
+
+
 // ==========================================
 // SEGURIDAD
 // ==========================================
@@ -538,9 +647,13 @@ function escapar(texto) {
     return String(texto)
 
         .replaceAll("&", "&amp;")
+
         .replaceAll("<", "&lt;")
+
         .replaceAll(">", "&gt;")
+
         .replaceAll('"', "&quot;")
+
         .replaceAll("'", "&#039;");
 }
 
@@ -548,13 +661,15 @@ function escapar(texto) {
 function escaparAtributo(texto) {
 
     return String(texto)
+
         .replaceAll("\\", "\\\\")
+
         .replaceAll("'", "\\'");
 }
 
 
 // ==========================================
-// INICIAR
+// INICIAR APLICACIÓN
 // ==========================================
 
 cargarCatalogo();
