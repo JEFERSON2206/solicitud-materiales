@@ -153,15 +153,18 @@ function agregarCanasta(codigo) {
 function mostrarCanasta() {
 
     // Calcular cantidad total
-    const total = canasta.reduce(
-        (suma, item) => suma + item.cantidad,
-        0
+    const totalUnidades = canasta.reduce(
+    (suma, item) => suma + item.cantidad,
+    0
     );
 
-    contadorCanasta.textContent = total;
+    const totalMateriales = canasta.length;
+
+    contadorCanasta.textContent = totalMateriales;
 
     totalCanasta.textContent =
-        total + (total === 1 ? " material" : " materiales");
+      totalMateriales +
+     (totalMateriales === 1 ? " material" : " materiales");
 
 
     if (canasta.length === 0) {
