@@ -1,0 +1,758 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6f9;
+    color: #17202a;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+header {
+    background: linear-gradient(135deg, #123452, #1d5278);
+    color: white;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0 0 6px;
+    font-size: 25px;
+}
+
+header p {
+    margin: 0;
+    color: #dceaf5;
+    font-size: 14px;
+}
+
+/* =========================
+   BOTÓN MI SOLICITUD
+========================= */
+
+.btn-canasta {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 18px;
+    background: white;
+    color: #16324f;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.2s;
+}
+
+.btn-canasta:hover {
+    transform: translateY(-2px);
+}
+
+#contadorCanasta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 24px;
+    height: 24px;
+
+    margin-left: 6px;
+
+    background: #1f7a4d;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+}
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+main {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 0 18px 50px;
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.note {
+    background: white;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid #e1e7ec;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    line-height: 1.5;
+}
+
+.note strong {
+    font-size: 17px;
+    color: #16324f;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.search {
+    width: 100%;
+    padding: 17px 20px;
+
+    border: 2px solid #dce3e9;
+    border-radius: 14px;
+
+    font-size: 17px;
+
+    background: white;
+
+    outline: none;
+
+    margin-bottom: 15px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+    transition: 0.2s;
+}
+
+.search:focus {
+    border-color: #1f7a4d;
+    box-shadow: 0 0 0 4px rgba(31, 122, 77, 0.10);
+}
+
+.count {
+    color: #68737d;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* =========================
+   TARJETAS DE MATERIAL
+========================= */
+
+.card {
+    background: white;
+
+    border: 1px solid #e2e7eb;
+
+    border-radius: 14px;
+
+    padding: 17px 18px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.035);
+
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    border-color: #cdd8e0;
+}
+
+.informacion-material {
+    min-width: 0;
+}
+
+.code {
+    display: inline-block;
+
+    background: #edf4f8;
+
+    color: #16324f;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+.desc {
+    color: #4f5b64;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+}
+
+/* =========================
+   BOTÓN AGREGAR
+========================= */
+
+.btn-agregar {
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 11px 15px;
+
+    background: #1f7a4d;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.btn-agregar:hover {
+    background: #17623d;
+
+    transform: scale(1.03);
+}
+
+button {
+    transition: 0.2s;
+}
+
+/* =========================
+   VENTANA EMERGENTE
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    inset: 0;
+
+    background: rgba(8, 22, 34, 0.65);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 15px;
+
+    backdrop-filter: blur(3px);
+}
+
+.modal.mostrar {
+    display: flex;
+}
+
+/* =========================
+   CONTENIDO DEL MODAL
+========================= */
+
+.modal-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 780px;
+
+    max-height: 92vh;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   CABECERA DEL MODAL
+========================= */
+
+.modal-header {
+    padding: 20px 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #f8fafb;
+
+    border-bottom: 1px solid #e1e6ea;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 21px;
+
+    color: #16324f;
+}
+
+.modal-header p {
+    margin: 5px 0 0;
+
+    color: #69757f;
+
+    font-size: 14px;
+}
+
+.btn-cerrar {
+    background: #edf0f2;
+
+    color: #4c555c;
+
+    border: none;
+
+    border-radius: 50%;
+
+    width: 38px;
+
+    height: 38px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+.btn-cerrar:hover {
+    background: #dfe4e8;
+}
+
+/* =========================
+   LISTA DE MATERIALES
+========================= */
+
+.lista-canasta {
+    padding: 8px 22px;
+
+    overflow-y: auto;
+
+    flex: 1;
+}
+
+.item-canasta {
+    display: grid;
+
+    grid-template-columns: 1fr auto auto;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #e8ecef;
+}
+
+.codigo-item {
+    display: inline-block;
+
+    color: #16324f;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.descripcion-item {
+    color: #4e5961;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+/* =========================
+   CONTROL DE CANTIDAD
+========================= */
+
+.control-cantidad {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.btn-cantidad {
+    width: 34px;
+
+    height: 34px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #16324f;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.btn-cantidad:hover {
+    background: #214d70;
+}
+
+.input-cantidad {
+    width: 58px;
+
+    height: 34px;
+
+    text-align: center;
+
+    border: 1px solid #cfd7dd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    outline: none;
+}
+
+.input-cantidad:focus {
+    border-color: #1f7a4d;
+}
+
+/* =========================
+   BOTÓN ELIMINAR
+========================= */
+
+.btn-eliminar {
+    background: #f8dddd;
+
+    color: #b83232;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 9px 11px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.btn-eliminar:hover {
+    background: #f2caca;
+}
+
+/* =========================
+   DATOS DE LA SOLICITUD
+========================= */
+
+/* =========================
+   DATOS DE LA SOLICITUD
+========================= */
+
+.datos-solicitud {
+    background: #f7f9fa;
+
+    border-top: 1px solid #e1e6ea;
+
+    padding: 14px 22px;
+}
+
+.datos-solicitud h3 {
+    margin: 0 0 10px;
+
+    color: #16324f;
+
+    font-size: 16px;
+}
+
+.datos-solicitud label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #4e5961;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+/* Los tres campos quedan en una fila */
+
+.datos-solicitud {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    column-gap: 12px;
+
+    row-gap: 5px;
+}
+
+/* El título ocupa toda la fila */
+
+.datos-solicitud h3 {
+    grid-column: 1 / -1;
+}
+
+/* Cada input */
+
+.datos-solicitud input {
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border: 1px solid #cfd7dd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+.datos-solicitud input:focus {
+    border-color: #1f7a4d;
+
+    box-shadow: 0 0 0 3px rgba(31, 122, 77, 0.08);
+}
+
+.campo-solicitud {
+    min-width: 0;
+}
+/* =========================
+   PIE DEL MODAL
+========================= */
+
+.modal-footer {
+    padding: 15px 22px;
+
+    border-top: 1px solid #e1e6ea;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: white;
+}
+
+.total-canasta {
+    margin-right: auto;
+
+    color: #16324f;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+.btn-secundario {
+    background: #68737d;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 15px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.btn-secundario:hover {
+    background: #515b63;
+}
+
+.btn-whatsapp {
+    background: #1f7a4d;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.btn-whatsapp:hover {
+    background: #17623d;
+
+    transform: translateY(-1px);
+}
+
+/* =========================
+   CANASTA VACÍA
+========================= */
+
+.canasta-vacia {
+    color: #7b858d;
+
+    padding: 45px 10px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+.lista-canasta::-webkit-scrollbar {
+    width: 7px;
+}
+
+.lista-canasta::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+.lista-canasta::-webkit-scrollbar-thumb {
+    background: #c4ccd2;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .btn-canasta {
+        width: 100%;
+    }
+
+    main {
+        margin-top: 20px;
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+    .card {
+        align-items: flex-start;
+
+        padding: 14px;
+
+        flex-direction: column;
+    }
+
+    .btn-agregar {
+        width: 100%;
+    }
+
+    .item-canasta {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 16px 0;
+    }
+
+    .control-cantidad {
+        justify-content: flex-start;
+    }
+
+    .btn-eliminar {
+        width: 100%;
+    }
+
+    .datos-solicitud {
+        padding: 18px;
+    }
+
+    .modal-footer {
+        flex-wrap: wrap;
+
+        padding: 14px 18px;
+    }
+
+    .total-canasta {
+        width: 100%;
+
+        margin-bottom: 4px;
+    }
+
+    .btn-secundario,
+    .btn-whatsapp {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+    .modal-contenido {
+        max-height: 95vh;
+
+        border-radius: 15px;
+    }
+
+    .datos-solicitud {
+    grid-template-columns: 1fr;
+    }
+
+    .datos-solicitud h3 {
+    grid-column: auto;
+    }
+}

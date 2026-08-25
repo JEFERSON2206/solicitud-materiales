@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Materiales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>Solicitud de Materiales</h1>
+        <p>Catálogo de materiales de mantenimiento</p>
+    </div>
+
+    <button id="btnCanasta" class="btn-canasta">
+        🛒 Mi solicitud
+        <span id="contadorCanasta">0</span>
+    </button>
+</header>
+
+<main>
+
+    <div class="note">
+        <strong>Solicitud de materiales</strong><br>
+        Busca el material que necesitas y agrégalo a tu solicitud.
+    </div>
+
+    <input
+        id="buscador"
+        class="search"
+        type="search"
+        placeholder="🔎 Buscar material..."
+        autocomplete="off"
+    >
+
+    <div id="contador" class="count"></div>
+
+    <section id="lista"></section>
+
+</main>
+
+<!-- VENTANA DE LA SOLICITUD -->
+
+<div id="modalCanasta" class="modal">
+
+    <div class="modal-contenido">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>🛒 Mi solicitud</h2>
+                <p>Materiales seleccionados</p>
+            </div>
+
+            <button id="cerrarCanasta" class="btn-cerrar">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="canasta" class="lista-canasta">
+</div>
+
+
+<div class="datos-solicitud">
+
+    <h3>📋 Datos de la solicitud</h3>
+
+    <div class="campo-solicitud">
+        <label for="solicitante">
+            Técnico / Ingeniero
+        </label>
+
+        <input 
+            id="solicitante"
+            type="text"
+            placeholder="Ej: Jeferson Cacerez"
+        >
+    </div>
+
+    <div class="campo-solicitud">
+        <label for="planta">
+            Planta
+        </label>
+
+        <input 
+            id="planta"
+            type="text"
+            placeholder="Ej: Clinker"
+        >
+    </div>
+
+    <div class="campo-solicitud">
+        <label for="zona">
+            Zona / Área
+        </label>
+
+        <input 
+            id="zona"
+            type="text"
+            placeholder="Ej: Santander"
+        >
+    </div>
+
+</div>
+
+
+        <div class="modal-footer">
+
+            <div id="totalCanasta" class="total-canasta">
+                0 materiales
+            </div>
+
+            <button id="btnCerrarAbajo" class="btn-secundario">
+                Seguir agregando
+            </button>
+
+            <button id="btnWhatsApp" class="btn-whatsapp">
+                📱 Enviar solicitud
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
