@@ -635,7 +635,7 @@ btnWhatsApp.addEventListener("click", () => {
 
     window.open(url, "_blank");
 
-});
+
 
 // ==========================================
 // LIMPIAR SOLICITUD DESPUÉS DE ENVIAR
@@ -655,7 +655,7 @@ document.getElementById("zona").value = "";
 // Cerrar ventana de solicitud
 cerrarModal();
 
-
+});
 // ==========================================
 // SEGURIDAD
 // ==========================================
