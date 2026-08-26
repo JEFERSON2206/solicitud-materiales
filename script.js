@@ -642,15 +642,15 @@ btnWhatsApp.addEventListener("click", () => {
 // ==========================================
 
 // Vaciar materiales seleccionados
-canasta = [];
+    canasta = [];
 
 // Actualizar carrito
-mostrarCanasta();
+    mostrarCanasta();
 
 // Limpiar datos del solicitante
-document.getElementById("solicitante").value = "";
-document.getElementById("planta").value = "";
-document.getElementById("zona").value = "";
+    document.getElementById("solicitante").value = "";
+    document.getElementById("planta").value = "";
+    document.getElementById("zona").value = "";
 
 // Cerrar ventana de solicitud
 cerrarModal();
