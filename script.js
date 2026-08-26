@@ -637,6 +637,24 @@ btnWhatsApp.addEventListener("click", () => {
 
 });
 
+// ==========================================
+// LIMPIAR SOLICITUD DESPUÉS DE ENVIAR
+// ==========================================
+
+// Vaciar materiales seleccionados
+canasta = [];
+
+// Actualizar carrito
+mostrarCanasta();
+
+// Limpiar datos del solicitante
+document.getElementById("solicitante").value = "";
+document.getElementById("planta").value = "";
+document.getElementById("zona").value = "";
+
+// Cerrar ventana de solicitud
+cerrarModal();
+
 
 // ==========================================
 // SEGURIDAD
