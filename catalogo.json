@@ -104,6 +104,10 @@
     "descripcion": "ADAPTADOR MACHO 1/2\" POLIPROPILENO CON INSERTO  METALICO  VERDE"
   },
   {
+  "codigo": "H-AMIM-1/2.3/4-103",
+  "descripcion": "ADAPTADOR MACHO 1/2\" X 3/4\" CON INSERTO METÁLICO POLIPROPILENO"
+},
+  {
     "codigo": "H-AMIM-3/4-018",
     "descripcion": "ADAPTADOR MACHO 3/4\" POLIPROPILENO CON INSERTO  METALICO  VERDE"
   },
@@ -154,6 +158,10 @@
   {
     "codigo": "E-BPCE-20.8.40-076",
     "descripcion": "BANDEJA PORTACABLE ESCALERA 20X8X240CM"
+  },
+  {
+  "codigo": "E-BPM-10.5.2-102",
+  "descripcion": "BANDEJA DE MALLA 10 CM X 5 CM X 2 M CON UNIONES"
   },
   {
     "codigo": "O-BMC-095",
@@ -368,6 +376,10 @@
     "descripcion": "CHAZO EXPANSIVO 3/8\" X 2\""
   },
   {
+  "codigo": "O-CE-3/8.3-031",
+  "descripcion": "CHAZO EXPANSIVO 3/8\" X 3\""
+  },
+  {
     "codigo": "O-CE-5/16.1.1/2-028",
     "descripcion": "CHAZO EXPANSIVO 5/16 X 1 1/2\""
   },
@@ -410,6 +422,14 @@
   {
     "codigo": "E-CL-15-025",
     "descripcion": "Clavija levinton 15 amp"
+  },
+  {
+  "codigo": "E-CLM-15-026",
+  "descripcion": "CLAVIJA LEVITON 15 AMP MACHO"
+  },
+  {
+  "codigo": "E-CLH-15-027",
+  "descripcion": "CLAVIJA LEVITON 15 AMP HEMBRA"
   },
   {
     "codigo": "H-CCI-1/2-029",
@@ -653,7 +673,7 @@
   },
   {
     "codigo": "N-IPA-063",
-    "descripcion": "INDICADOR DE POSICION PARA ACTUADOR"
+    "descripcion": "INDICADOR DE POSICION PARA ACTUADOR APL 210N"
   },
   {
     "codigo": "E-IT-044",
@@ -909,7 +929,11 @@
   },
   {
     "codigo": "E-PLR-110-050",
-    "descripcion": "PILOTO LED COLORES  110V"
+    "descripcion": "PILOTO LED ROJO  110V"
+  },
+  {
+  "codigo": "E-PLV-110-051",
+  "descripcion": "PILOTO LED VERDE 110V"
   },
   {
     "codigo": "O-PIVE-1G",
